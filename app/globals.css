@@ -155,3 +155,26 @@ p, span, ul, ol, li, div, a {
     @apply bg-background text-foreground;
   }
 }
+
+/* Custom CSS for animated underline on hyperlinks */
+.animated-underline {
+  position: relative;
+  text-decoration: none; /* Removes the default underline */
+}
+
+/* Create the pseudo-element that will act as the underline */
+.animated-underline::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px; /* Thickness of the underline */
+  bottom: -2px; /* Position below the text */
+  left: 0;
+  background-color: currentColor; /* Uses the link's text color */
+  transition: width 0.3s ease-in-out; /* Animation for the width */
+}
+
+/* On hover, expand the underline to 100% width */
+.animated-underline:hover::after {
+  width: 100%;
+}
