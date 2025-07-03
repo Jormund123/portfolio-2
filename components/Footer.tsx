@@ -1,3 +1,4 @@
+// @components/footer.tsx
 "use client";
 
 import React from "react";
@@ -31,19 +32,19 @@ export default function Footer() {
 
     const musicLinks = [
         {
-            href: "https://youtube.com/@anandkarna",
+            href: "https://www.youtube.com/@polaroyd_art",
             icon: FaYoutube,
             label: "YouTube",
             color: "hover:text-red-500"
         },
         {
-            href: "https://open.spotify.com/artist/anandkarna",
+            href: "https://open.spotify.com/artist/4V82fwCvXHY3kLo7PMGktj",
             icon: FaSpotify,
             label: "Spotify",
             color: "hover:text-green-500"
         },
         {
-            href: "https://music.apple.com/artist/anandkarna",
+            href: "https://music.apple.com/in/artist/polaroyd/1788387856",
             icon: FaApple,
             label: "Apple Music",
             color: "hover:text-gray-300"

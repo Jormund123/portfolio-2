@@ -1,6 +1,7 @@
 import type {Metadata} from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import CustomCursor from "@/components/CustomCursor";
 
 export const metadata: Metadata = {
     title: "Anand Karna - Everything about me",
@@ -18,6 +19,7 @@ export default function RootLayout({
 
         <Navbar/>
         <main>
+            <CustomCursor/>
             {children}
         </main>
 

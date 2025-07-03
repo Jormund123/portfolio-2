@@ -2,6 +2,7 @@
 
 import React, {useState, useEffect} from "react";
 import Link from "next/link";
+import {usePathname} from "next/navigation";
 import {ArrowUpRight, Menu, X} from "lucide-react";
 import {Button} from "@/components/ui/stateful-button";
 import {ThemeManager} from "@/components/ThemeManager";
@@ -12,6 +13,7 @@ const cn = (...classes: (string | undefined | boolean)[]) =>
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [hasScrolled, setHasScrolled] = useState(false);
+    const pathname = usePathname();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -31,6 +33,13 @@ export default function Navbar() {
         {href: "/research", label: "Research"},
     ];
 
+    const isActive = (href: string) => {
+        if (href === "/") {
+            return pathname === "/";
+        }
+        return pathname.startsWith(href);
+    };
+
     return (
         <>
             <nav
@@ -47,7 +56,12 @@ export default function Navbar() {
                         {/* Column 1: Logo */}
                         <div className="lg:col-start-1">
                             <Link href="/"
-                                  className="text-2xl font-bold cursor-pointer text-muted-foreground hover:text-foreground relative inline-block before:absolute before:content-[''] before:w-0 before:h-[2px] before:bg-foreground before:transition-all before:duration-300 before:top-full before:left-0 hover:before:w-full">
+                                  className={cn(
+                                      "text-2xl font-bold cursor-pointer relative inline-block before:absolute before:content-[''] before:h-[2px] before:bg-foreground before:transition-all before:duration-300 before:top-full before:left-0",
+                                      isActive("/")
+                                          ? "text-foreground before:w-full"
+                                          : "text-muted-foreground hover:text-foreground before:w-0 hover:before:w-full"
+                                  )}>
                                 <h3>Anand Karna</h3>
                             </Link>
                         </div>
@@ -57,7 +71,12 @@ export default function Navbar() {
                                 <Link
                                     key={link.href}
                                     href={link.href}
-                                    className="transition-colors text-muted-foreground hover:text-foreground relative inline-block before:absolute before:content-[''] before:w-0 before:h-[2px] before:bg-foreground before:transition-all before:duration-300 before:top-full before:left-0 hover:before:w-full"
+                                    className={cn(
+                                        "transition-colors text-sm relative inline-block before:absolute before:content-[''] before:h-[2px] before:bg-foreground before:transition-all before:duration-300 before:top-full before:left-0",
+                                        isActive(link.href)
+                                            ? "text-foreground before:w-full"
+                                            : "text-muted-foreground hover:text-foreground before:w-0 hover:before:w-full"
+                                    )}
                                 >
                                     {link.label}
                                 </Link>
@@ -79,7 +98,12 @@ export default function Navbar() {
                                 href="/contact"
                                 className="text-sm font-medium rounded-md transition-colors"
                             >
-                                <Button className="bg-foreground text-primary-foreground">
+                                <Button className={cn(
+                                    "transition-colors",
+                                    isActive("/contact")
+                                        ? "bg-foreground text-primary-foreground"
+                                        : "bg-foreground text-primary-foreground hover:bg-primary/90"
+                                )}>
                                     <div className="flex flex-row items-center">
                                         Work With Me
                                         <ArrowUpRight className="ml-2" size={18}/>
@@ -112,7 +136,12 @@ export default function Navbar() {
                             <Link
                                 key={link.href}
                                 href={link.href}
-                                className="block px-3 py-2 rounded-md text-base font-medium text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
+                                className={cn(
+                                    "block px-3 py-2 rounded-md text-base font-medium transition-colors",
+                                    isActive(link.href)
+                                        ? "text-foreground bg-muted/50"
+                                        : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                                )}
                                 onClick={() => setIsMenuOpen(false)}
                             >
                                 {link.label}
@@ -136,7 +165,12 @@ export default function Navbar() {
                                     className="inline-block"
                                     onClick={() => setIsMenuOpen(false)}
                                 >
-                                    <Button className="bg-foreground text-primary-foreground hover:bg-primary/90 w-full">
+                                    <Button className={cn(
+                                        "w-full transition-colors",
+                                        isActive("/contact")
+                                            ? "bg-foreground text-primary-foreground"
+                                            : "bg-foreground text-primary-foreground hover:bg-primary/90"
+                                    )}>
                                         <div className="flex flex-row items-center justify-center">
                                             Work With Me
                                             <ArrowUpRight className="ml-2" size={18}/>
