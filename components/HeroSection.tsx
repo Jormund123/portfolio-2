@@ -138,7 +138,7 @@ export default function PlayfulHeroSection() {
                 <div className="hidden lg:flex items-end justify-start lg:col-start-3">
                     <FloatingElement delay={600}>
                         <Link
-                            href="https://music.apple.com/in/playlist/60s-2000s-rock/pl.u-JPAZbdZFL2gPard"
+                            href="https://open.spotify.com/playlist/4NzuD5ersoyuwsscAyZQCl?si=c66cc8b94deb40b1&pt=48e5a4ff57a42ffa54d356f42ee168c1"
                             target="_blank"
                             className="flex items-center gap-2 text-sm text-muted-foreground hover:text-white transition-colors group"
                         >

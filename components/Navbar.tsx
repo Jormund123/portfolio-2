@@ -6,6 +6,7 @@ import {usePathname} from "next/navigation";
 import {ArrowUpRight, Menu, X} from "lucide-react";
 import {Button} from "@/components/ui/stateful-button";
 import {ThemeManager} from "@/components/ThemeManager";
+import AnandResumeSheet from "@/components/Resume";
 
 const cn = (...classes: (string | undefined | boolean)[]) =>
     classes.filter(Boolean).join(" ");
@@ -28,7 +29,7 @@ export default function Navbar() {
 
     const navLinks = [
         {href: "/about", label: "About Me"},
-        {href: "/works", label: "Selected Works"},
+        {href: "/selected-works", label: "Selected Works"},
         {href: "/films", label: "Short Films"},
         {href: "/research", label: "Research"},
     ];
@@ -84,31 +85,20 @@ export default function Navbar() {
                         </div>
 
                         <div className="hidden md:flex items-baseline space-x-4 lg:col-start-3 justify-self-end">
+                            <AnandResumeSheet/>
                             <Link
-                                href="https://drive.google.com/file/d/1GruW888KRvqtxT6lYj_1DMfIfrRFofv-/view"
-                                target="_blank"
-                                className="px-4 py-2 text-sm font-medium transition-colors text-muted-foreground hover:text-foreground relative inline-block before:absolute before:content-[''] before:w-0 before:h-[2px] before:bg-foreground before:transition-all before:duration-300 before:top-full before:left-0 hover:before:w-full"
-                            >
-                                <div className="flex flex-row items-center">
-                                    My Resume
-                                    <ArrowUpRight className="ml-2" size={18}/>
-                                </div>
-                            </Link>
-                            <Link
-                                href="/contact"
-                                className="text-sm font-medium rounded-md transition-colors"
-                            >
-                                <Button className={cn(
-                                    "transition-colors",
-                                    isActive("/contact")
+                                href="/workwithme"
+                                className={cn(
+                                    "inline-flex items-center px-4 py-2 text-sm font-medium rounded-md transition-colors",
+                                    isActive("/workwithme")
                                         ? "bg-foreground text-primary-foreground"
                                         : "bg-foreground text-primary-foreground hover:bg-primary/90"
-                                )}>
-                                    <div className="flex flex-row items-center">
-                                        Work With Me
-                                        <ArrowUpRight className="ml-2" size={18}/>
-                                    </div>
-                                </Button>
+                                )}
+                            >
+                                <div className="flex flex-row items-center">
+                                    Work With Me
+                                    <ArrowUpRight className="ml-2" size={18}/>
+                                </div>
                             </Link>
                         </div>
 
