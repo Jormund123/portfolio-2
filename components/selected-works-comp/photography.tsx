@@ -4,7 +4,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 
 // Define your image paths here
 const imagePaths = [
-    '/images/selected-works/select-1.jpg', // landscape
+    '/images/selected-works/select-1.jpg',
     '/images/selected-works/select-2.jpg', // portrait
     '/images/selected-works/select-3.jpg', // portrait
     '/images/selected-works/select-4.jpg', // landscape
