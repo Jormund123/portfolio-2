@@ -1,10 +1,10 @@
 import React from 'react';
 import {ArrowRight, Video, ExternalLink, Play, ArrowDown} from "lucide-react";
-import {FloatingElement} from "@/app/about/page";
+import {FloatingElement} from "@/components/FloatingElement";
 import Image from "next/image";
 import Link from "next/link";
 
-const Film = (props) => {
+const Film = () => {
     return (
         <>
             {/* Header Section */}

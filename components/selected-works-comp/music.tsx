@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from "next/image";
 
-const Music = (props) => {
+const Music = () => {
     return (
         <>
             <div className="group relative overflow-hidden pb-10">

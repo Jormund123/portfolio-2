@@ -1,9 +1,10 @@
 "use client";
 
 import React, {useState, useEffect, ReactNode, FC} from 'react';
-import {ArrowUpRight, Code, Music, Video, Sparkles, LucideProps} from "lucide-react";
+import {ArrowUpRight, Code, Music, Video, LucideProps} from "lucide-react";
 import {ThemeManager} from "@/components/ThemeManager";
 import Link from "next/link";
+import {FloatingElement} from "@/components/FloatingElement";
 
 // Data types for the skills section
 interface Skill {
@@ -30,31 +31,6 @@ const skillsData: Skill[] = [
         items: ["AI/ML", "Web Development", "Data Structures & Algorithms", "Engineering Economics", "Distributed Systems", "Compiler Design", "Computer Architecture"]
     },
 ];
-
-// Props for the FloatingElement component
-export interface FloatingElementProps {
-    delay?: number;
-    children: ReactNode;
-    className?: string;
-}
-
-export const FloatingElement: FC<FloatingElementProps> = ({delay = 0, children, className}) => {
-    const [isVisible, setIsVisible] = useState<boolean>(false);
-
-    useEffect(() => {
-        const timer = setTimeout(() => setIsVisible(true), delay);
-        return () => clearTimeout(timer);
-    }, [delay]);
-
-    return (
-        <div
-            className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'} ${className}`}
-            style={{animationDelay: `${delay}ms`}}
-        >
-            {children}
-        </div>
-    );
-};
 
 // Props for the PulsatingDot component
 interface PulsatingDotProps {

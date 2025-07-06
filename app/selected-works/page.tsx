@@ -4,7 +4,7 @@ import Music from "@/components/selected-works-comp/music";
 import Photography from "@/components/selected-works-comp/photography";
 import {ThemeManager} from "@/components/ThemeManager";
 
-const SelectedWorks = (props) => {
+const SelectedWorks = () => {
     return (
         <>
             <ThemeManager theme="dark"/>
