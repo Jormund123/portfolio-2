@@ -1,5 +1,5 @@
 import React from 'react';
-import {ArrowRight, Video, ExternalLink, Play, ArrowDown} from "lucide-react";
+import {ArrowRight, Video, ExternalLink, Play, ArrowDown, Music2, Camera} from "lucide-react";
 import {FloatingElement} from "@/components/FloatingElement";
 import Image from "next/image";
 import Link from "next/link";
@@ -13,13 +13,15 @@ const Film = () => {
                 <div className="relative z-10 flex flex-col justify-between lg:col-start-2">
                     <div className="space-y-2 sm:space-y-4">
                         <FloatingElement delay={200}>
-                            <div className="flex items-center gap-3 sm:gap-4 group">
+                            <div className="flex items-baseline gap-3 sm:gap-4 group">
                                 <p className="font-bold text-2xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-7xl text-foreground tracking-tighter transition-all duration-500 group-hover:text-muted-foreground">
                                     Finest Works.
                                 </p>
-                                <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <div className="flex flex-row gap-x-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                     <Video
-                                        className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 text-muted-foreground animate-pulse"/>
+                                        className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 text-muted-foreground animate-pulse"/>
+                                    <Music2 className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 text-muted-foreground animate-pulse"/>
+                                    <Camera className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 text-muted-foreground animate-pulse"/>
                                 </div>
                             </div>
                         </FloatingElement>
@@ -70,33 +72,34 @@ const Film = () => {
 
                 {/* Metadata Section - Full Width */}
                 <FloatingElement delay={600}>
-                    <div
-                        className="flex items-baseline gap-6 px-4 py-3">
-                        {/* Title (takes up remaining space) */}
-                        <h2 className="flex-1 min-w-0 group truncate text-sm font-medium tracking-tight text-foreground group-hover:text-muted-foreground transition-colors">
-                            Echoes I Mistook For Answers
-                        </h2>
-                        {/* Meta + Links (fixed size) */}
-                        <div className="flex shrink-0 items-baseline gap-4">
-                            <span className="hidden sm:inline text-xs tracking-widest uppercase text-muted-foreground">
-                              Short Film
-                            </span>
-                            <span className="text-xs text-muted-foreground font-mono">2025</span>
-                            <Link
-                                href="https://www.youtube.com/watch?v=hwdStAc_9cI"
-                                target="_blank"
-                                className="group flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground transition-colors"
-                            >
-                                <span>Watch</span>
-                                <ExternalLink className="w-3 h-3 transition-transform group-hover:translate-x-0.5"/>
-                            </Link>
-                            <Link
-                                href="/selected-works/echoes-i-mistook-for-answers"
-                                className="group flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground transition-colors"
-                            >
-                                <span>Details</span>
-                                <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-0.5"/>
-                            </Link>
+                    <div className="max-w-6xl mx-auto px-6 lg:px-8">
+                        <div className="flex justify-between items-baseline gap-6 py-3">
+                            {/* Title (takes up remaining space) */}
+                            <h2 className="truncate font-medium tracking-tight text-foreground group-hover:text-muted-foreground transition-colors">
+                                Echoes I Mistook For Answers
+                            </h2>
+                            {/* Meta + Links (fixed size) */}
+                            <div className="flex shrink-0 items-baseline gap-4">
+                <span className="hidden sm:inline text-xs tracking-widest uppercase text-muted-foreground">
+                  Short Film
+                </span>
+                                <span className="text-xs text-muted-foreground font-mono">2025</span>
+                                <Link
+                                    href="https://www.youtube.com/watch?v=hwdStAc_9cI"
+                                    target="_blank"
+                                    className="group flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground transition-colors"
+                                >
+                                    <span>Watch</span>
+                                    <ExternalLink className="w-3 h-3 transition-transform group-hover:translate-x-0.5"/>
+                                </Link>
+                                <Link
+                                    href="/selected-works/echoes-i-mistook-for-answers"
+                                    className="group flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground transition-colors"
+                                >
+                                    <span>Details</span>
+                                    <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-0.5"/>
+                                </Link>
+                            </div>
                         </div>
                     </div>
                 </FloatingElement>

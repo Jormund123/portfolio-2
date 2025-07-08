@@ -1,4 +1,6 @@
 // Props for the FloatingElement component
+'use client'
+
 import {FC, ReactNode, useEffect, useState} from "react";
 
 export interface FloatingElementProps {
