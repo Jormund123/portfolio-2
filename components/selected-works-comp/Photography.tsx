@@ -9,8 +9,6 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/components/ui/carousel";
-import Link from "next/link";
-import {ArrowRight, ExternalLink} from "lucide-react";
 import {FloatingElement} from "@/components/FloatingElement";
 
 interface ImageDetails {
