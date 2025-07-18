@@ -1,7 +1,11 @@
 import React from 'react';
-import Film from "@/components/selected-works-comp/film";
-import Music from "@/components/selected-works-comp/music";
-import Photography from "@/components/selected-works-comp/photography";
+// @ts-ignore
+import Film from "@/components/selected-works-comp/Film";
+// @ts-ignore
+import Music from '@/components/selected-works-comp/Music';
+// @ts-ignore
+import Photography from "@/components/selected-works-comp/Photography";
+import FinestWorksHero from "@/components/selected-works-comp/FinestWorksHero";
 import {ThemeManager} from "@/components/ThemeManager";
 
 const SelectedWorks = () => {
@@ -9,8 +13,9 @@ const SelectedWorks = () => {
         <>
             <ThemeManager theme="dark"/>
             <div className="lg:mt-10">
-                <Film/>
+                <FinestWorksHero/>
                 <Music/>
+                <Film/>
                 <Photography/>
             </div>
         </>
